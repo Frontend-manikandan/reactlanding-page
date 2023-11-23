@@ -1,24 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import TopNav from './Components/TopNav';
+import Home from './Components/Home';
+import Games from './Components/Games';
+import Forum from './Components/Forum';
+import Signup from './Components/Signup';
+import Contact from './Components/Contact';
+import Event from './Components/Event';
+import { BrowserRouter,Route,Routes } from 'react-router-dom';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+  <BrowserRouter>
+     <TopNav/>
+     <Home/>
+     <Games/>
+     <Forum/>
+     <Signup/>
+     <Contact/>
+     <Event/>
+    <div className='App'>
+      <>
+       <Routes>
+          <Route path='/'  element={<Home/>}/>
+          <Route path='/game' element={Games}/>
+          <Route path='./Forum' element={Forum}/>
+          <Route path='/signup' element={Signup}/>
+          <Route path='./contact' element={Contact}/>
+          <Route path='./event' element={Event}/>
+        </Routes>
+      </>
+      </div>
+  </BrowserRouter>
   );
 }
 
